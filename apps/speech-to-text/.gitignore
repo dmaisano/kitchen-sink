@@ -1,2 +1,6 @@
 audio_files/
+transcribed/
 venv/
+
+deepspeech-*-models.pbmm
+deepspeech-*-models.scorer
