@@ -4,6 +4,14 @@ import PropertyCard from "../../components/workcation/PropertyCard";
 import SearchFilter from "../../components/workcation/SearchFilter";
 import { PROPERTY_LOCATIONS } from "../../components/workcation/locations";
 
+import { Roboto } from "@next/font/google";
+
+const roboto = Roboto({
+  display: "swap",
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+});
+
 import "./index.css";
 
 export type WorkcationStateType = {
@@ -36,14 +44,11 @@ const WorkcationPage = () => {
     setState({ ...state, isOpen: !state.isOpen });
   };
 
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
-
   return (
     <WorkcationContext.Provider value={{ state, setState, toggleIsOpen }}>
-      <div className="min-h-full bg-gray-200 antialiased xl:flex xl:flex-col xl:h-full">
+      <div
+        className={`min-h-full bg-slate-100 antialiased xl:flex xl:flex-col xl:h-full ${roboto.className}`}
+      >
         <Header />
         <div className="xl:flex-1 xl:flex xl:overflow-y-hidden">
           <SearchFilter />
@@ -63,7 +68,7 @@ const WorkcationPage = () => {
                           j >= 1 ? `mt-10 sm:ml-4` : undefined
                         }`}
                       >
-                        <PropertyCard {...{ formatter, property }} />
+                        <PropertyCard property={property} />
                       </div>
                     ))}
                   </div>
