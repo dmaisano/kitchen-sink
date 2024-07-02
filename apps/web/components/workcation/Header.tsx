@@ -36,7 +36,7 @@ const Header: React.FC = () => {
           <button
             onClick={() => toggleIsOpen()}
             type="button"
-            className="px-2 text-gray-500 hover:text-white focus:outline-none focus:text-white"
+            className="px-2 text-gray-400 hover:text-white focus:outline-none focus:text-white"
           >
             <svg
               className="h-6 w-6 fill-current"
@@ -98,20 +98,21 @@ const Header: React.FC = () => {
                 className="h-10 w-10 object-cover rounded-full border-2 border-gray-600"
                 src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80"
                 alt=""
-                fill
+                width={40}
+                height={40}
               />
               <span className="ml-4 font-semibold text-gray-200 sm:hidden">
                 Isla Schoger
               </span>
             </div>
             <div className="mt-5 sm:hidden">
-              <button className="block text-gray-500 hover:text-white">
+              <button className="block text-gray-400 hover:text-white">
                 Account settings
               </button>
-              <button className="mt-3 block text-gray-500 hover:text-white">
+              <button className="mt-3 block text-gray-400 hover:text-white">
                 Support
               </button>
-              <button className="mt-3 block text-gray-500 hover:text-white">
+              <button className="mt-3 block text-gray-400 hover:text-white">
                 Sign out
               </button>
             </div>

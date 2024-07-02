@@ -27,7 +27,7 @@ const Dropdown: React.FC = () => {
         onBlur={() => setState({ ...state, dropdownHasFocus: false })}
       >
         <span
-          className={`block h-8 w-8 overflow-hidden rounded-full border-2 ${
+          className={`block h-8 w-8 overflow-hidden border-2 rounded-full ${
             state.dropdownHasFocus || state.isOpen
               ? `border-white xl:border-indigo-500`
               : `border-gray-600 xl:border-gray-300`
@@ -37,7 +37,8 @@ const Dropdown: React.FC = () => {
             className="h-full w-full object-cover rounded-full"
             src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80"
             alt=""
-            fill
+            width={40}
+            height={40}
           />
         </span>
       </button>
