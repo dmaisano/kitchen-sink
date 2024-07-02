@@ -9,7 +9,7 @@ const nextConfig = {
     ],
   },
   transpilePackages: ["@repo/ui"],
-  distDir: "../../.next",
+  distDir: "dist",
 };
 
 export default nextConfig;
