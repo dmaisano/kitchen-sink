@@ -1,3 +1,5 @@
+"use client";
+
 import { Dispatch, SetStateAction, createContext, useState } from "react";
 import Header from "../../components/workcation/Header";
 import PropertyCard from "../../components/workcation/PropertyCard";
@@ -13,6 +15,7 @@ const roboto = Roboto({
 });
 
 import "./index.css";
+import DisclaimerModal from "../../components/workcation/DisclaimerModal";
 
 export type WorkcationStateType = {
   dropdownHasFocus: boolean;
@@ -46,6 +49,7 @@ const WorkcationPage = () => {
 
   return (
     <WorkcationContext.Provider value={{ state, setState, toggleIsOpen }}>
+      <DisclaimerModal />
       <div
         className={`min-h-full bg-slate-100 antialiased xl:flex xl:flex-col xl:h-full ${roboto.className}`}
       >
