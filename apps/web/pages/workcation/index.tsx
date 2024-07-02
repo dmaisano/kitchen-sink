@@ -6,7 +6,7 @@ import PropertyCard from "../../components/workcation/PropertyCard";
 import SearchFilter from "../../components/workcation/SearchFilter";
 import { PROPERTY_LOCATIONS } from "../../components/workcation/locations";
 
-import { Roboto } from "@next/font/google";
+import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
   display: "swap",
