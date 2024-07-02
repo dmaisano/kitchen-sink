@@ -6,7 +6,6 @@
   ],
   "javascript.preferences.importModuleSpecifier": "relative",
   "typescript.preferences.importModuleSpecifier": "relative",
-  "rust-analyzer.linkedProjects": ["apps/rust-refresher/Cargo.toml"],
   "[python]": {
     "editor.tabSize": 4,
     "editor.defaultFormatter": "ms-python.black-formatter"
