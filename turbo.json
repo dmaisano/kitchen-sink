@@ -19,10 +19,12 @@
     },
     "showcase#build": {
       "dependsOn": [
-        "^build",
-        "$NEXT_PUBLIC_STRIPE_TEST_PK",
-        "$NEXT_PUBLIC_STRIPE_CAPSTONE_MONTHLY_SUB_PRICE_ID",
-        "$NEXT_PUBLIC_STRIPE_CAPSTONE_YEARLY_SUB_PRICE_ID"
+        "^build"
+      ],
+      "env": [
+        "NEXT_PUBLIC_STRIPE_TEST_PK",
+        "NEXT_PUBLIC_STRIPE_CAPSTONE_MONTHLY_SUB_PRICE_ID",
+        "NEXT_PUBLIC_STRIPE_CAPSTONE_YEARLY_SUB_PRICE_ID"
       ]
     },
     "lint": {
