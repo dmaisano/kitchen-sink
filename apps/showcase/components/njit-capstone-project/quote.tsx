@@ -10,9 +10,9 @@ const Quote: React.FC<QuoteProps> = ({ scrollToCheckout }) => {
     <>
       <section
         id="quote"
-        className="relative min-h-full flex flex-col items-center justify-center"
+        className="relative min-h-full flex flex-col items-center justify-center bg-[#201f2d]"
       >
-        <div id="container" className="mx-auto">
+        <div id="container" className="mx-auto md:w-[600px] text-white">
           <h2 className="text-center text-3xl mb-8">
             What Our Premium Customers Say
           </h2>
@@ -37,7 +37,7 @@ const Quote: React.FC<QuoteProps> = ({ scrollToCheckout }) => {
               eu, an pro semper labitur delicata. Nostro fierent vel ea, te eros
               delectus per
             </p>
-            <p className="text-center md:text-left font-semibold text-xl">
+            <p className="text-center md:text-left font-semibold text-xl before:content-['-']">
               Tony Soprano
             </p>
           </div>
@@ -45,9 +45,12 @@ const Quote: React.FC<QuoteProps> = ({ scrollToCheckout }) => {
       </section>
       <section
         id="still-thinking"
-        className="relative min-h-full flex flex-col items-center justify-center bg-[#242333]"
+        className="relative min-h-full flex flex-col items-center justify-center bg-[#242333] text-white"
+        style={{
+          clipPath: `polygon(0 14%, 100% 0, 100% 100%, 0% 100%)`,
+        }}
       >
-        <div id="container" className="mx-auto text-center ">
+        <div id="container" className="w-full px-8  mx-auto text-center ">
           <h2 className="text-4xl mb-4">Still Thinking?</h2>
           <p className="text-xl mb-4">
             Don't waste your time - Get{" "}

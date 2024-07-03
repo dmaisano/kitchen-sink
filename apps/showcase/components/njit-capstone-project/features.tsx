@@ -1,11 +1,9 @@
 import React from "react";
 import Button from "./button";
-import "./features.css";
 
 interface FeaturesProps {
   checkoutRef: React.RefObject<HTMLDivElement>;
   loading: boolean;
-  priceIDs: [string, string];
   // eslint-disable-next-line no-unused-vars
   handleCheckout: (_: string) => Promise<void>;
 }
@@ -13,24 +11,34 @@ interface FeaturesProps {
 const Features: React.FC<FeaturesProps> = ({
   checkoutRef,
   loading,
-  priceIDs,
   handleCheckout,
 }) => {
   return (
     <section
       id="features"
-      className="relative min-h-full flex flex-col md:items-center py-8 px-12 md:p-0"
+      className="relative min-h-full flex flex-col md:items-center py-8 px-12 md:p-0 justify-start md:justify-center"
+      style={{
+        background: `linear-gradient(to top, #3a426d, #1b1f3b)`,
+      }}
     >
-      <h2 className="relative md:py-8 md:mb-8 text-white text-center text-3xl md:text-4xl">
+      <h2 className="relative md:py-8 md:mb-8 text-white text-center text-3xl md:text-4xl font-semibold">
         Premium Features
       </h2>
 
       <div
         id="features-grid"
-        className="block md:grid text-white md:px-8 md:mb-8"
+        className="block md:grid text-white md:px-8 md:mb-8 md:grid-cols-2 md:gap-16"
       >
-        <div id="feature-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75">
+        <div
+          id="feature-item"
+          className="flex flex-col items-center mx-auto mb-8"
+        >
+          <svg
+            className="mb-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="75"
+            height="75"
+          >
             <g fill="none">
               <path
                 fill="#FFF"
@@ -54,8 +62,16 @@ const Features: React.FC<FeaturesProps> = ({
             similique ne nec, eius eruditi
           </p>
         </div>
-        <div id="feature-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="74" height="75">
+        <div
+          id="feature-item"
+          className="flex flex-col items-center mx-auto mb-8"
+        >
+          <svg
+            className="mb-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="74"
+            height="75"
+          >
             <g fill="none">
               <path
                 fill="#FFF"
@@ -83,8 +99,16 @@ const Features: React.FC<FeaturesProps> = ({
             similique ne nec, eius eruditi
           </p>
         </div>
-        <div id="feature-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="59" height="85">
+        <div
+          id="feature-item"
+          className="flex flex-col items-center mx-auto mb-8"
+        >
+          <svg
+            className="mb-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="59"
+            height="85"
+          >
             <g fill="none">
               <path
                 fill="#FFF"
@@ -116,8 +140,16 @@ const Features: React.FC<FeaturesProps> = ({
             similique ne nec, eius eruditi
           </p>
         </div>
-        <div id="feature-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="59" height="85">
+        <div
+          id="feature-item"
+          className="flex flex-col items-center mx-auto mb-8"
+        >
+          <svg
+            className="mb-2"
+            xmlns="http://www.w3.org/2000/svg"
+            width="59"
+            height="85"
+          >
             <g fill="none">
               <path
                 fill="#FFF"
@@ -149,39 +181,64 @@ const Features: React.FC<FeaturesProps> = ({
         </div>
       </div>
 
-      <div ref={checkoutRef} id="payment-options">
-        <h2 className="text-3xl text-center mb-4">Select Your Plan</h2>
-        <div id="payment-cards">
-          <div className="card mb-6">
-            <div className="card-content">
-              <div className="card-title">9.99</div>
-              <div className="card-subtitle">per month</div>
-              <p className="card-text mb-6">
+      <div ref={checkoutRef} id="payment-options" className="md:mb-8">
+        <h2 className="text-3xl text-center mb-4 text-white">
+          Select Your Plan
+        </h2>
+        <div
+          id="payment-cards"
+          className="md:grid md:grid-cols-[repeat(2,0.5fr)] md:gap-10 md:grid-flow-row"
+        >
+          <div className="card md:ml-auto md:w-3/4 relative bg-white h-full flex flex-col items-center justify-center bg-clip-border rounded-xl border-solid border-[rgba(0, 0, 0, 0.125)] mb-6">
+            <div className="card-content p-6 lg:p-8 mx-auto text-center">
+              <div className="card-title text-5xl lg:text-7xl font-bold before:text-[#724cf9] before:text-3xl before:lg:text-4xl before:content-['$'] before:align-super">
+                9.99
+              </div>
+              <div className="card-subtitle text-xl lg:text-3xl mb-3 lg:mb-5">
+                per month
+              </div>
+              <p className="card-text text-[#6d6f78] mb-6">
                 Lorem ipsum dolor sit amet, augue delectus cum ne, mazim numquam
                 similique ne nec, eius eruditi fierent
               </p>
               <div>
                 <Button
+                  className="w-full"
                   disabled={loading}
-                  onClick={() => handleCheckout(priceIDs[0])}
+                  onClick={() =>
+                    handleCheckout(
+                      process.env
+                        .NEXT_PUBLIC_STRIPE_CAPSTONE_MONTHLY_SUB_PRICE_ID ?? "",
+                    )
+                  }
                 >
                   Select Plan
                 </Button>
               </div>
             </div>
           </div>
-          <div className="card">
-            <div className="card-content">
-              <div className="card-title">99.99</div>
-              <div className="card-subtitle">per year</div>
-              <p className="card-text mb-6">
+          <div className="card md:mr-auto md:w-3/4 relative bg-white h-full flex flex-col items-center justify-center bg-clip-border rounded-xl border-solid border-[rgba(0, 0, 0, 0.125)]">
+            <div className="card-content p-6 lg:p-8 mx-auto text-center">
+              <div className="card-title text-5xl lg:text-7xl font-bold before:text-[#724cf9] before:text-3xl before:lg:text-4xl before:content-['$'] before:align-super">
+                99.99
+              </div>
+              <div className="card-subtitle text-xl lg:text-3xl mb-3 lg:mb-5">
+                per year
+              </div>
+              <p className="card-text text-[#6d6f78] mb-6">
                 Lorem ipsum dolor sit amet, augue delectus cum ne, mazim numquam
                 similique ne nec, eius eruditi fierent
               </p>
               <div>
                 <Button
+                  className="w-full"
                   disabled={loading}
-                  onClick={() => handleCheckout(priceIDs[1])}
+                  onClick={() =>
+                    handleCheckout(
+                      process.env
+                        .NEXT_PUBLIC_STRIPE_CAPSTONE_YEARLY_SUB_PRICE_ID ?? "",
+                    )
+                  }
                 >
                   Select Plan
                 </Button>

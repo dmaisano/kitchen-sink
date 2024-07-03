@@ -22,7 +22,7 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
         fill
         sizes="100vw"
         className={cn(
-          `object-cover bg -z-10 bg-cover w-full absolute top-0 left-0 block md:hidden`,
+          `object-cover bg z-10 bg-cover w-full absolute top-0 left-0 block md:hidden`,
         )}
       />
       <Image
@@ -32,7 +32,7 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
         fill
         sizes="100vw"
         className={cn(
-          `object-cover bg -z-10 bg-cover w-full absolute top-0 left-0 sm:hidden md:block lg:hidden`,
+          `object-cover bg z-10 bg-cover w-full absolute top-0 left-0 sm:hidden md:block lg:hidden`,
         )}
       />
       <Image
@@ -42,10 +42,10 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
         fill
         sizes="100vw"
         className={cn(
-          `object-cover bg -z-10 bg-cover w-full absolute top-0 left-0 lg:block hidden`,
+          `object-cover bg z-10 bg-cover w-full absolute top-0 left-0 lg:block hidden`,
         )}
       />
-      <div className="z-10">
+      <div className="z-30">
         <h1 className="w-full tracking-widest font-light text-white text-2xl flex justify-center md:justify-start absolute top-0 left-0 py-12 md:p-6">
           INSERT COMPANY
         </h1>

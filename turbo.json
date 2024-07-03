@@ -1,13 +1,34 @@
 {
+  "globalDependencies": [
+    ".env"
+  ],
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ]
+    },
+    "showcase#build": {
+      "dependsOn": [
+        "^build",
+        "$NEXT_PUBLIC_STRIPE_TEST_PK",
+        "$NEXT_PUBLIC_STRIPE_CAPSTONE_MONTHLY_SUB_PRICE_ID",
+        "$NEXT_PUBLIC_STRIPE_CAPSTONE_YEARLY_SUB_PRICE_ID"
+      ]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": [
+        "^lint"
+      ]
     },
     "dev": {
       "cache": false,
