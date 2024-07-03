@@ -8,14 +8,15 @@ import { PROPERTY_LOCATIONS } from "../../components/workcation/locations";
 
 import { Roboto } from "next/font/google";
 
+import { cn } from "@repo/ui/utils";
+import DisclaimerModal from "../../components/workcation/DisclaimerModal";
+import "./index.css";
+
 const roboto = Roboto({
   display: "swap",
   weight: ["100", "300", "400", "500", "700", "900"],
   subsets: ["latin"],
 });
-
-import "./index.css";
-import DisclaimerModal from "../../components/workcation/DisclaimerModal";
 
 export type WorkcationStateType = {
   dropdownHasFocus: boolean;
@@ -51,7 +52,10 @@ const WorkcationPage = () => {
     <WorkcationContext.Provider value={{ state, setState, toggleIsOpen }}>
       <DisclaimerModal />
       <div
-        className={`min-h-full bg-slate-100 antialiased xl:flex xl:flex-col xl:h-full ${roboto.className}`}
+        className={cn(
+          `min-h-full bg-slate-100 antialiased xl:flex xl:flex-col xl:h-full`,
+          roboto.className,
+        )}
       >
         <Header />
         <div className="xl:flex-1 xl:flex xl:overflow-y-hidden">
