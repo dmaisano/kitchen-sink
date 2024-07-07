@@ -9,6 +9,9 @@ const nextConfig = {
     ],
   },
   transpilePackages: ["@repo/ui"],
+  experimental: {
+    scrollRestoration: true,
+  },
 };
 
 export default nextConfig;
