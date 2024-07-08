@@ -69,14 +69,12 @@ const TravelSitePage = () => {
               </span>
             </div>
           </div>
-          {/* TODO: make this sticky always visible */}
           <Hamburger
             id="mobile-menu"
             variant="light"
             className={cn({
               "z-40 block !md:hidden fixed top-0 right-0 p-4":
                 !showContactModal,
-              // TODO: use scroll intersection to change color to primary if section is white BG
               "": !showMobileHamburger && typeof y === "number" && y > 0,
               hidden: showContactModal,
             })}
@@ -94,28 +92,28 @@ const TravelSitePage = () => {
           >
             <Button
               id="splash"
-              className="min-w-[200px]"
+              className="min-w-[200px] border border-white rounded-md"
               onClick={() => scrollToSection("splash")}
             >
               Our Beginning
             </Button>
             <Button
               id="features"
-              className="min-w-[200px]"
+              className="min-w-[200px] border border-white rounded-md"
               onClick={() => scrollToSection("features")}
             >
               Features
             </Button>
             <Button
               id="testimonials"
-              className="min-w-[200px]"
+              className="min-w-[200px] border border-white rounded-md"
               onClick={() => scrollToSection("testimonials")}
             >
               Testimonials
             </Button>
             <Button
               variant="accent"
-              className="min-w-[200px]"
+              className="min-w-[200px] border border-white rounded-md"
               onClick={() => setContactModalVisibility(true)}
             >
               Get in Touch
