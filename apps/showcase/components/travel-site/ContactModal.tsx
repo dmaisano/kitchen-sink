@@ -17,7 +17,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
     <div
       id="contact-modal"
       className={cn(
-        "z-40 fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-[rgba(255,255,255,0.95)]",
+        "fixed left-0 top-0 z-40 flex h-screen w-screen items-center justify-center bg-[rgba(255,255,255,0.95)]",
         {
           hidden: !showContactModal,
         },
@@ -27,13 +27,13 @@ const ContactModal: React.FC<ContactModalProps> = ({
         id="contact-menu"
         variant="dark"
         className={cn(`hidden`, {
-          "z-[100] !block fixed top-0 right-0 p-4": showContactModal,
+          "fixed right-0 top-0 z-[100] !block p-4": showContactModal,
         })}
         expanded={showContactModal}
         toggle={toggleContactFormVisibility}
       />
-      <div className="px-5 mx-auto overflow-hidden max-w-screen-xl">
-        <div className="flex flex-col items-center mb-8">
+      <div className="mx-auto max-w-screen-xl overflow-hidden px-5">
+        <div className="mb-8 flex flex-col items-center">
           <svg
             className="mb-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -45,18 +45,18 @@ const ContactModal: React.FC<ContactModalProps> = ({
               fill="#2f5572"
             />
           </svg>
-          <h2 className="text-[#2f5572] text-4xl">
+          <h2 className="text-4xl text-[#2f5572]">
             Get in <span className="font-semibold">Touch</span>
           </h2>
         </div>
-        <p className="text-center max-w-[400px] mx-auto text-xl">
+        <p className="mx-auto max-w-[400px] text-center text-xl">
           We will have an online order system in place soon. Until then, connect
           with us on any of the platforms below!
         </p>
-        <div id="socials" className="grid grid-cols-2 gap-3 m-8 md:grid-cols-4">
+        <div id="socials" className="m-8 grid grid-cols-2 gap-3 md:grid-cols-4">
           <Button
             variant="accent"
-            className="rounded-lg flex items-center justify-center"
+            className="flex items-center justify-center rounded-lg"
           >
             <Image
               className="!w-auto"
@@ -68,7 +68,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
           </Button>
           <Button
             variant="accent"
-            className="rounded-lg flex items-center justify-center"
+            className="flex items-center justify-center rounded-lg"
           >
             <Image
               className="!w-auto"
@@ -80,7 +80,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
           </Button>
           <Button
             variant="accent"
-            className="rounded-lg flex items-center justify-center"
+            className="flex items-center justify-center rounded-lg"
           >
             <Image
               className="!w-auto"
@@ -92,7 +92,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
           </Button>
           <Button
             variant="accent"
-            className="rounded-lg flex items-center justify-center"
+            className="flex items-center justify-center rounded-lg"
           >
             <Image
               className="!w-auto"

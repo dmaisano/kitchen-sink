@@ -12,7 +12,7 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
   return (
     <section
       id="splash"
-      className="relative min-h-full flex flex-col items-center justify-center"
+      className="relative flex min-h-full flex-col items-center justify-center"
     >
       <div className="splash-wrapper" />
       <Image
@@ -22,7 +22,7 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
         fill
         sizes="100vw"
         className={cn(
-          `object-cover bg z-10 bg-cover w-full absolute top-0 left-0 block md:hidden`,
+          `bg absolute left-0 top-0 z-10 block w-full bg-cover object-cover md:hidden`,
         )}
       />
       <Image
@@ -32,7 +32,7 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
         fill
         sizes="100vw"
         className={cn(
-          `object-cover bg z-10 bg-cover w-full absolute top-0 left-0 sm:hidden md:block lg:hidden`,
+          `bg absolute left-0 top-0 z-10 w-full bg-cover object-cover sm:hidden md:block lg:hidden`,
         )}
       />
       <Image
@@ -42,23 +42,23 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
         fill
         sizes="100vw"
         className={cn(
-          `object-cover bg z-10 bg-cover w-full absolute top-0 left-0 lg:block hidden`,
+          `bg absolute left-0 top-0 z-10 hidden w-full bg-cover object-cover lg:block`,
         )}
       />
       <div className="z-30">
-        <h1 className="w-full tracking-widest font-light text-white text-2xl flex justify-center md:justify-start absolute top-0 left-0 py-12 md:p-6">
+        <h1 className="absolute left-0 top-0 flex w-full justify-center py-12 text-2xl font-light tracking-widest text-white md:justify-start md:p-6">
           INSERT COMPANY
         </h1>
-        <div className="mx-auto mix-blend-luminosity max-w-[768px]">
+        <div className="mx-auto max-w-[768px] mix-blend-luminosity">
           <h2
-            className="text-white text-5xl text-center mb-10"
+            className="mb-10 text-center text-5xl text-white"
             style={{
               fontFamily: "Playfair Display",
             }}
           >
             Book World-Class Talent
           </h2>
-          <p className="text-gray-200 text-lg text-center mb-10">
+          <p className="mb-10 text-center text-lg text-gray-200">
             Premium members get access to a world-class talent pool of
             professional talent for your next project. Our talent has won
             academy awards, grammy's and more.

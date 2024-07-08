@@ -21,7 +21,7 @@ const Hamburger: React.FC<HamburgerProps> = ({
       id="mobile-icon"
       onClick={toggle}
       className={cn(
-        `flex items-center focus:outline-none ml-auto md:hidden fixed top-0 right-0 p-4 `,
+        `fixed right-0 top-0 ml-auto flex items-center p-4 focus:outline-none md:hidden`,
         className,
       )}
       {...props}

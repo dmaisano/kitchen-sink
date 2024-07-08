@@ -8,7 +8,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     <button
       {...props}
       className={cn(
-        `cursor-pointer text-white font-normal bg-[#724cf9] hover:bg-[#4b1bf7] outline-none py-2 px-4 rounded`,
+        `cursor-pointer rounded bg-[#724cf9] px-4 py-2 font-normal text-white outline-none hover:bg-[#4b1bf7]`,
         props.className,
       )}
     ></button>

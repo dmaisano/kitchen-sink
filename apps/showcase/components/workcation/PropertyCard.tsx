@@ -21,24 +21,24 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
     <div>
       <div className="relative pb-[83.3333333%]">
         <Image
-          className="absolute inset-0 h-full w-full rounded-lg shadow-md object-cover"
+          className="absolute inset-0 h-full w-full rounded-lg object-cover shadow-md"
           src={imageUrl}
           alt=""
           fill
         />
       </div>
-      <div className="relative px-4 -mt-16">
-        <div className="bg-white rounded-lg px-4 py-4 shadow-lg">
+      <div className="relative -mt-16 px-4">
+        <div className="rounded-lg bg-white px-4 py-4 shadow-lg">
           <div className="flex items-baseline">
-            <span className="inline-block px-2 py-1 leading-none bg-teal-200 text-teal-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+            <span className="inline-block rounded-full bg-teal-200 px-2 py-1 text-xs font-semibold uppercase leading-none tracking-wide text-teal-800">
               Plus
             </span>
-            <div className="ml-2 text-xs text-gray-600 font-semibold uppercase tracking-wide">
+            <div className="ml-2 text-xs font-semibold uppercase tracking-wide text-gray-600">
               {beds} {beds === 1 ? "bed" : "beds"} &bull; {baths}{" "}
               {baths === 1 ? "bath" : "baths"}
             </div>
           </div>
-          <h4 className="mt-1 text-gray-900 font-bold text-lg">{title}</h4>
+          <h4 className="mt-1 text-lg font-bold text-gray-900">{title}</h4>
           <div className="mt-1">
             <span className="text-gray-900">{formattedPrice}</span>
             <span className="ml-1 text-sm text-gray-600">/wk</span>

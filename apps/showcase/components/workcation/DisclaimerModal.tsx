@@ -25,24 +25,24 @@ const DisclaimerModal: React.FC = () => {
   return (
     <div
       className={cn(
-        "fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50",
+        "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50",
         {
           hidden: !isModalOpen,
         },
       )}
     >
-      <div className="bg-white p-4 rounded shadow-lg max-w-sm w-full">
-        <h2 className="text-xl mb-4 font-bold text-center">
+      <div className="w-full max-w-sm rounded bg-white p-4 shadow-lg">
+        <h2 className="mb-4 text-center text-xl font-bold">
           Welcome to Workcation! 🌴
         </h2>
         <p className="mb-4 text-center">
           ⚠️ Quick disclaimer. This website is a demo for illustrative purposes
           only. It is not intended to represent a full-fledged product.
         </p>
-        <div className="w-full flex justify-center">
+        <div className="flex w-full justify-center">
           <button
             onClick={() => handleAcknowledge()}
-            className="bg-teal-500 text-white px-8 py-2 rounded hover:bg-teal-700 transition"
+            className="rounded bg-teal-500 px-8 py-2 text-white transition hover:bg-teal-700"
           >
             Acknowledge
           </button>

@@ -15,11 +15,11 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={cn(
-        `rounded-sm px-5 py-3 text-white no-underline inline-block bg-[#2f5572] hover:bg-[#59778e] focus:outline-none`,
+        `inline-block rounded-sm bg-[#2f5572] px-5 py-3 text-white no-underline hover:bg-[#59778e] focus:outline-none`,
         {
           "bg-[#d59541] hover:bg-[#aa7734]":
             variant === "accent" || variant === "large-accent",
-          "py-5 px-8": variant === "large" || variant === "large-accent",
+          "px-8 py-5": variant === "large" || variant === "large-accent",
         },
         className,
       )}

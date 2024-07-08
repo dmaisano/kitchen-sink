@@ -10,15 +10,15 @@ const Quote: React.FC<QuoteProps> = ({ scrollToCheckout }) => {
     <>
       <section
         id="quote"
-        className="relative min-h-full flex flex-col items-center justify-center bg-[#201f2d]"
+        className="relative flex min-h-full flex-col items-center justify-center bg-[#201f2d]"
       >
-        <div id="container" className="mx-auto md:w-[600px] text-white">
-          <h2 className="text-center text-3xl mb-8">
+        <div id="container" className="mx-auto text-white md:w-[600px]">
+          <h2 className="mb-8 text-center text-3xl">
             What Our Premium Customers Say
           </h2>
           <div className="relative">
             <svg
-              className="absolute -left-8 md:-left-16 -top-2 md:-top-4"
+              className="absolute -left-8 -top-2 md:-left-16 md:-top-4"
               xmlns="http://www.w3.org/2000/svg"
               width="58"
               height="49"
@@ -29,7 +29,7 @@ const Quote: React.FC<QuoteProps> = ({ scrollToCheckout }) => {
                 opacity=".104"
               />
             </svg>
-            <p className="text-center md:text-left text-gray-400 text-lg mb-4">
+            <p className="mb-4 text-center text-lg text-gray-400 md:text-left">
               Lorem ipsum dolor sit amet, augue delectus cum ne, mazim numquam
               similique ne nec, eius eruditi fierent est no. Ius illud laudem
               torquatos cu, ex vix nobis splendide theophrastus. Vel id putent
@@ -37,7 +37,7 @@ const Quote: React.FC<QuoteProps> = ({ scrollToCheckout }) => {
               eu, an pro semper labitur delicata. Nostro fierent vel ea, te eros
               delectus per
             </p>
-            <p className="text-center md:text-left font-semibold text-xl before:content-['-']">
+            <p className="text-center text-xl font-semibold before:content-['-'] md:text-left">
               Tony Soprano
             </p>
           </div>
@@ -45,18 +45,18 @@ const Quote: React.FC<QuoteProps> = ({ scrollToCheckout }) => {
       </section>
       <section
         id="still-thinking"
-        className="relative min-h-full flex flex-col items-center justify-center bg-[#242333] text-white"
+        className="relative flex min-h-full flex-col items-center justify-center bg-[#242333] text-white"
         style={{
           clipPath: `polygon(0 14%, 100% 0, 100% 100%, 0% 100%)`,
         }}
       >
-        <div id="container" className="w-full px-8  mx-auto text-center ">
-          <h2 className="text-4xl mb-4">Still Thinking?</h2>
-          <p className="text-xl mb-4">
+        <div id="container" className="mx-auto w-full px-8 text-center">
+          <h2 className="mb-4 text-4xl">Still Thinking?</h2>
+          <p className="mb-4 text-xl">
             Don't waste your time - Get{" "}
             <span
               onClick={scrollToCheckout}
-              className="cursor-pointer text-[#724cf9] font-bold"
+              className="cursor-pointer font-bold text-[#724cf9]"
             >
               Premium!
             </span>
