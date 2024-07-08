@@ -1,39 +1,40 @@
 "use client";
 
 import { cn } from "@repo/ui/utils";
-import { useWindowScroll } from "@uidotdev/usehooks";
+import { useIntersectionObserver, useWindowScroll } from "@uidotdev/usehooks";
 import Image from "next/image";
-import { RefObject, SetStateAction, useRef, useState } from "react";
+import { useState } from "react";
 import Button from "../../components/travel-site/Button";
+import ContactModal from "../../components/travel-site/ContactModal";
 import Hamburger from "../../components/travel-site/Hamburger";
 import "./index.css";
-import ContactModal from "../../components/travel-site/ContactModal";
 
 const TravelSitePage = () => {
-  const [{ y }, scrollTo] = useWindowScroll();
+  const [{ y }] = useWindowScroll();
 
-  const headerRef = useRef<HTMLDivElement>(null);
-  const splashRef = useRef<HTMLDivElement>(null);
-  const featuresRef = useRef<HTMLDivElement>(null);
-  const testimonialsRef = useRef<HTMLDivElement>(null);
+  const [splashRef, splashEntry] = useIntersectionObserver({ threshold: 0.66 });
+  const [featuresRef, featuresEntry] = useIntersectionObserver({
+    threshold: 0.66,
+  });
+  const [testimonialsRef, testimonialsEntry] = useIntersectionObserver({
+    threshold: 0.66,
+  });
 
   const [showMobileHamburger, setMobileHamburgerVisibility] = useState(false);
   const [showContactModal, setContactModalVisibility] = useState(false);
 
   const scrollToSection = (section: "splash" | "features" | "testimonials") => {
-    let ref: RefObject<HTMLDivElement> | null = null;
     switch (section) {
       case "splash":
-        ref = splashRef;
+        splashEntry?.target?.scrollIntoView({ behavior: "smooth" });
         break;
       case "features":
-        ref = featuresRef;
+        featuresEntry?.target?.scrollIntoView({ behavior: "smooth" });
         break;
       case "testimonials":
-        ref = testimonialsRef;
+        testimonialsEntry?.target?.scrollIntoView({ behavior: "smooth" });
         break;
     }
-    scrollTo({ top: ref?.current?.offsetTop, behavior: "smooth" });
     setMobileHamburgerVisibility(false);
   };
 
@@ -49,7 +50,6 @@ const TravelSitePage = () => {
         toggleContactFormVisibility={toggleContactFormVisibility}
       />
       <header
-        ref={headerRef}
         className={cn(
           `w-full absolute md:fixed md:bg-[rgba(47,85,114,0.3)] z-30`,
           {
@@ -136,21 +136,27 @@ const TravelSitePage = () => {
             <nav id="links" className={`flex gap-6 text-white`}>
               <button
                 id="splash"
-                className={cn(`hover:text-[#d59541] font-semibold`)}
+                className={cn(`hover:text-[#d59541] font-semibold`, {
+                  "!text-[#d59541]": splashEntry?.isIntersecting,
+                })}
                 onClick={() => scrollToSection("splash")}
               >
                 Our Beginning
               </button>
               <button
                 id="features"
-                className={cn(`hover:text-[#d59541] font-semibold`)}
+                className={cn(`hover:text-[#d59541] font-semibold`, {
+                  "!text-[#d59541]": featuresEntry?.isIntersecting,
+                })}
                 onClick={() => scrollToSection("features")}
               >
                 Features
               </button>
               <button
                 id="testimonials"
-                className={cn(`hover:text-[#d59541] font-semibold`)}
+                className={cn(`hover:text-[#d59541] font-semibold`, {
+                  "!text-[#d59541]": testimonialsEntry?.isIntersecting,
+                })}
                 onClick={() => scrollToSection("testimonials")}
               >
                 Testimonials
