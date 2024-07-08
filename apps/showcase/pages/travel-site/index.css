@@ -1,8 +1,8 @@
-/* HAMBURGER */
-
 * {
   scroll-behavior: smooth;
 }
+
+/* HAMBURGER */
 
 .hamburger-icon {
   width: 25px;
@@ -18,6 +18,12 @@
   height: 3px;
   margin: 5px 0;
   transition: all 0.2s ease-in-out;
+}
+
+.hamburger-icon--dark::after,
+.hamburger-icon--dark::before,
+.hamburger-icon--dark div {
+  background-color: #2f5572;
 }
 
 .hamburger-icon--expanded::before {
@@ -36,7 +42,7 @@
 
 header,
 #expanded-mobile-menu {
-  transition: background-color 1s ease-out;
+  transition: background-color 1s ease-in-out;
 }
 
 @media (min-width: 768px) {

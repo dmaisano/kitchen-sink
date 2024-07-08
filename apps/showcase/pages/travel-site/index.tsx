@@ -3,10 +3,11 @@
 import { cn } from "@repo/ui/utils";
 import { useWindowScroll } from "@uidotdev/usehooks";
 import Image from "next/image";
-import { RefObject, useRef, useState } from "react";
-import Button from "../../components/travel-site/button";
-import Hamburger from "../../components/travel-site/hamburger";
+import { RefObject, SetStateAction, useRef, useState } from "react";
+import Button from "../../components/travel-site/Button";
+import Hamburger from "../../components/travel-site/Hamburger";
 import "./index.css";
+import ContactModal from "../../components/travel-site/ContactModal";
 
 const TravelSitePage = () => {
   const [{ y }, scrollTo] = useWindowScroll();
@@ -36,24 +37,31 @@ const TravelSitePage = () => {
     setMobileHamburgerVisibility(false);
   };
 
+  const toggleContactFormVisibility = () => {
+    setMobileHamburgerVisibility(false);
+    setContactModalVisibility(!showContactModal);
+  };
+
   return (
     <main className="App">
+      <ContactModal
+        showContactModal={showContactModal}
+        toggleContactFormVisibility={toggleContactFormVisibility}
+      />
       <header
         ref={headerRef}
         className={cn(
-          `w-full absolute md:fixed md:bg-[rgba(47,85,114,0.3)] z-40`,
+          `w-full absolute md:fixed md:bg-[rgba(47,85,114,0.3)] z-30`,
           {
-            // "z-40 bg-[rgba(47,85,114,0.55)]": showMobileHamburger,
-            // "z-10": !showMobileHamburger,
             "md:!bg-[rgba(23,51,72,0.85)]": typeof y === "number" && y > 0,
           },
         )}
       >
         <div className="md:hidden">
-          <div className="w-full relative flex justify-center">
+          <div className="w-full fixed flex justify-center bg-[rgba(47,85,114,0.8)]">
             <div
               id="logo"
-              className="w-fit text-lg px-8 py-4 z-40 bg-[#2f5572] text-white text-center leading-none"
+              className="w-fit text-lg px-8 py-4 z-30 bg-[#2f5572] text-white text-center leading-none"
             >
               Clear View{" "}
               <span className="block text-2xl font-bold leading-none">
@@ -64,17 +72,23 @@ const TravelSitePage = () => {
           {/* TODO: make this sticky always visible */}
           <Hamburger
             id="mobile-menu"
-            className={cn(`z-50 block md:hidden fixed top-0 right-0 p-4`, {
+            variant="light"
+            className={cn({
+              "z-40 block !md:hidden fixed top-0 right-0 p-4":
+                !showContactModal,
               // TODO: use scroll intersection to change color to primary if section is white BG
               "": !showMobileHamburger && typeof y === "number" && y > 0,
+              hidden: showContactModal,
             })}
-            expanded={showMobileHamburger}
-            toggle={() => setMobileHamburgerVisibility(!showMobileHamburger)}
+            expanded={showMobileHamburger || showContactModal}
+            toggle={() => {
+              setMobileHamburgerVisibility(!showMobileHamburger);
+            }}
           />
           <nav
             id="expanded-mobile-menu"
             className={cn(`hidden bg-transparent`, {
-              "z-30 fixed top-0 left-0 h-screen w-screen !flex flex-col gap-12 items-center justify-center !bg-[rgba(47,85,114,0.8)]":
+              "z-20 fixed top-0 left-0 h-screen w-screen !flex flex-col gap-12 items-center justify-center !bg-[rgba(47,85,114,0.8)]":
                 showMobileHamburger,
             })}
           >
@@ -112,7 +126,7 @@ const TravelSitePage = () => {
           <div id="header-links" className="w-full grid">
             <div
               id="logo"
-              className="w-fit text-lg px-6 py-2 mb-0 z-40 bg-[#2f5572] text-white text-center leading-none"
+              className="w-fit text-lg px-6 py-2 mb-0 z-30 bg-[#2f5572] text-white text-center leading-none"
             >
               Clear View{" "}
               <span className="block text-2xl font-bold leading-none">
@@ -183,7 +197,7 @@ const TravelSitePage = () => {
         id="splash"
         className="bg-white py-8 px-0 md:py-[4.5rem]"
       >
-        <div className="overflow-hidden px-5 mx-auto max-w-7xl">
+        <div className="overflow-hidden px-5 mx-auto max-w-screen-xl">
           <h2 className="text-[#2f5572] text-center text-3xl mb-4 md:mb-8 sm:text-[2.875rem]">
             The first trip we planned{" "}
             <span className="font-semibold">was our own.</span>
