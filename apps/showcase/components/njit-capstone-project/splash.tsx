@@ -17,7 +17,7 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
       <div className="splash-wrapper" />
       <Image
         alt=""
-        src="/njit-capstone-project/splash_small.jpg"
+        src="/njit-capstone-project/splash-small.jpg"
         quality={100}
         fill
         sizes="100vw"
@@ -27,7 +27,7 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
       />
       <Image
         alt=""
-        src="/njit-capstone-project/splash_medium.jpg"
+        src="/njit-capstone-project/splash-medium.jpg"
         quality={100}
         fill
         sizes="100vw"
@@ -37,7 +37,7 @@ const Splash: React.FC<SpashProps> = ({ scrollToCheckout }) => {
       />
       <Image
         alt=""
-        src="/njit-capstone-project/splash_large.jpg"
+        src="/njit-capstone-project/splash-large.jpg"
         quality={100}
         fill
         sizes="100vw"
